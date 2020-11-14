@@ -3,10 +3,10 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>¸üĞÂÔ±¹¤¹¤×ÊĞÅÏ¢</title>
+    <title>æ›´æ–°å‘˜å·¥å·¥èµ„ä¿¡æ¯</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
-<h2 align="center" style="color:rgb(158, 216, 216);">¸üĞÂÔ±¹¤¹¤×ÊĞÅÏ¢</h2>
+<h2 align="center" style="color:rgb(158, 216, 216);">æ›´æ–°å‘˜å·¥å·¥èµ„ä¿¡æ¯</h2>
 
 <?
 require("warn.php");
@@ -15,7 +15,7 @@ require("sql.php");
 
 <?
 if (isset($_GET['id'])) {
-    $sql = "select * from listwage where Ô±¹¤±àºÅ=" . $_GET['id'];
+    $sql = "select * from listwage where å‘˜å·¥ç¼–å·=" . $_GET['id'];
     $result = odbc_exec($conn, $sql);
     if (!$result) {
         header("location:menu.php");
@@ -27,35 +27,35 @@ if (isset($_GET['id'])) {
     <form action="updatewage.php" method="post">
         <table border="3" align="center" cellpadding="2">
             <tr>
-                <td align="right">Ô±¹¤±àºÅ:</td>
-                <td><?= $row['Ô±¹¤±àºÅ'] ?><input type="hidden" name="PersonnelID" value="<?= $row['Ô±¹¤±àºÅ'] ?>"></td>
+                <td align="right">å‘˜å·¥ç¼–å·:</td>
+                <td><?= $row['å‘˜å·¥ç¼–å·'] ?><input type="hidden" name="PersonnelID" value="<?= $row['å‘˜å·¥ç¼–å·'] ?>"></td>
             </tr>
             <tr>
-                <td align="right">Ô±¹¤ĞÕÃû:</td>
-                <td><?= $row['Ô±¹¤ĞÕÃû'] ?></td>
+                <td align="right">å‘˜å·¥å§“å:</td>
+                <td><?= $row['å‘˜å·¥å§“å'] ?></td>
             </tr>
             <tr>
-                <td align="right">ËùÊô²¿ÃÅ:</td>
-                <td><?= $row['ËùÊô²¿ÃÅ'] ?></td>
+                <td align="right">æ‰€å±éƒ¨é—¨:</td>
+                <td><?= $row['æ‰€å±éƒ¨é—¨'] ?></td>
             </tr>
             <tr>
-                <td align="right">»ù´¡¹¤×Ê:</td>
-                <td><input type="text" name="BasicWage" value="<?= $row['»ù´¡¹¤×Ê'] ?>" required="required" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
+                <td align="right">åŸºç¡€å·¥èµ„:</td>
+                <td><input type="text" name="BasicWage" value="<?= $row['åŸºç¡€å·¥èµ„'] ?>" required="required" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
             </tr>
             <tr>
-                <td align="right">½±½ğ:</td>
-                <td><input type="text" name="AwardMoney" value="<?= $row['½±½ğ'] ?>" required="required" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
+                <td align="right">å¥–é‡‘:</td>
+                <td><input type="text" name="AwardMoney" value="<?= $row['å¥–é‡‘'] ?>" required="required" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
             </tr>
             <tr>
-                <td align="right">·£½ğ:</td>
-                <td><input type="text" name="FinedMoney" value="<?= $row['·£½ğ'] ?>" required="required" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
+                <td align="right">ç½šé‡‘:</td>
+                <td><input type="text" name="FinedMoney" value="<?= $row['ç½šé‡‘'] ?>" required="required" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
             </tr>
             <tr>
-                <td align="right">Êµ·¢¹¤×Ê:</td>
-                <td><?= $row['Êµ·¢¹¤×Ê'] . "(Ìá½»ºó¸üĞÂ)" ?></td>
+                <td align="right">å®å‘å·¥èµ„:</td>
+                <td><?= $row['å®å‘å·¥èµ„'] . "(æäº¤åæ›´æ–°)" ?></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" name="submit" value="Íê³É¸üĞÂ" /><br /><?= @$_GET['warn'] ?></td>
+                <td colspan="2" align="center"><input type="submit" name="submit" value="å®Œæˆæ›´æ–°" /><br /><?= @$_GET['warn'] ?></td>
             </tr>
         </table>
     </form>
@@ -64,10 +64,10 @@ if (isset($_POST['submit'])) {
     $sql = "exec updatewage @PersonnelID=" . $_POST['PersonnelID'] . ",@BasicWage=" . $_POST['BasicWage'] . ",@AwardMoney=" . $_POST['AwardMoney'] . ",@FinedMoney=" . $_POST['FinedMoney'];
     @$result = odbc_exec($conn, $sql);
     if ($result) {
-        header("location:updatewage.php?id=" . $_POST['PersonnelID'] . "&warn=¸üĞÂ³É¹¦");
+        header("location:updatewage.php?id=" . $_POST['PersonnelID'] . "&warn=æ›´æ–°æˆåŠŸ");
         exit;
     } else {
-        header("location:updatewage.php?id=" . $_POST['PersonnelID'] . "&warn=¸üĞÂÊ§°Ü");
+        header("location:updatewage.php?id=" . $_POST['PersonnelID'] . "&warn=æ›´æ–°å¤±è´¥");
         exit;
     }
 }
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 <br />
 <table align="center">
     <tr>
-        <td><a href="listwage.php" style="color:white">·µ»ØÉÏÒ»¼¶</a></td>
+        <td><a href="listwage.php" style="color:white">è¿”å›ä¸Šä¸€çº§</a></td>
     </tr>
 </table>
 

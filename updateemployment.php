@@ -3,21 +3,21 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>¸üĞÂÔ±¹¤ĞÅÏ¢</title>
+    <title>æ›´æ–°å‘˜å·¥ä¿¡æ¯</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
-<h2 align="center" style="color:rgb(158, 216, 216);">¸üĞÂÔ±¹¤ĞÅÏ¢</h2>
+<h2 align="center" style="color:rgb(158, 216, 216);">æ›´æ–°å‘˜å·¥ä¿¡æ¯</h2>
 <script>
     function check() {
         var tel = document.getElementById('tel');
         if (tel.value.length < 11) {
-            alert("ÊÖ»úºÅ³¤¶ÈÎª11Î»£¡");
+            alert("æ‰‹æœºå·é•¿åº¦ä¸º11ä½ï¼");
             tel.focus();
             return false;
         }
         var pid = document.getElementById('pid');
         if (pid.value.length < 18) {
-            alert("Éí·İÖ¤³¤¶ÈÎª18Î»£¡");
+            alert("èº«ä»½è¯é•¿åº¦ä¸º18ä½ï¼");
             pid.focus();
             return false;
         }
@@ -43,50 +43,50 @@ if (isset($_GET['id'])) {
     <form action="updateemployment.php" method="post">
         <table border="3" align="center" cellpadding="2">
             <tr>
-                <td align="right">Ô±¹¤±àºÅ:</td>
+                <td align="right">å‘˜å·¥ç¼–å·:</td>
                 <td><?= $row['PersonnelID'] ?><input type="hidden" name="PersonnelID" value="<?= $row['PersonnelID'] ?>"></td>
             </tr>
             <tr>
-                <td align="right">Ô±¹¤ĞÕÃû:</td>
+                <td align="right">å‘˜å·¥å§“å:</td>
                 <td><input type="text" name="PersonnelName" value="<?= $row['PersonnelName'] ?>" required="required" size="28"></td>
             </tr>
             <tr>
-                <td align="right">ĞÔ±ğ:</td>
+                <td align="right">æ€§åˆ«:</td>
                 <td><select name="Sex">
-                        <option value="ÄĞ" <? if ($row['Sex'] == 'ÄĞ') echo 'selected="selected"'; ?>>ÄĞ</option>
-                        <option value="Å®" <? if ($row['Sex'] == 'Å®') echo 'selected="selected"'; ?>>Å®</option>
+                        <option value="ç”·" <? if ($row['Sex'] == 'ç”·') echo 'selected="selected"'; ?>>ç”·</option>
+                        <option value="å¥³" <? if ($row['Sex'] == 'å¥³') echo 'selected="selected"'; ?>>å¥³</option>
                     </select></td>
             </tr>
             <tr>
-                <td align="right">ÊÖ»ú:</td>
+                <td align="right">æ‰‹æœº:</td>
                 <td><input type="text" name="Tel" id="tel" value="<?= $row['Tel'] ?>" required="required" maxlength="11" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
             </tr>
             <tr>
-                <td align="right">×¡Ö·:</td>
+                <td align="right">ä½å€:</td>
                 <td><textarea name="Addr" warp="virtual" required="required"><?= $row['Addr'] ?></textarea></td>
             </tr>
             <tr>
-                <td align="right">»éÒöÇé¿ö:</td>
+                <td align="right">å©šå§»æƒ…å†µ:</td>
                 <td><select name="Marriage">
-                        <option value="Î´»é" <? if ($row['Marriage'] == 'Î´»é') echo 'selected="selected"'; ?>>Î´»é</option>
-                        <option value="ÒÑ»é" <? if ($row['Marriage'] == 'ÒÑ»é') echo 'selected="selected"'; ?>>ÒÑ»é</option>
+                        <option value="æœªå©š" <? if ($row['Marriage'] == 'æœªå©š') echo 'selected="selected"'; ?>>æœªå©š</option>
+                        <option value="å·²å©š" <? if ($row['Marriage'] == 'å·²å©š') echo 'selected="selected"'; ?>>å·²å©š</option>
                     </select></td>
             </tr>
             <tr>
-                <td align="right">Ñ§Àú:</td>
+                <td align="right">å­¦å†:</td>
                 <td><select name="Education">
-                        <option value="±¾¿Æ" <? if ($row['Education'] == '±¾¿Æ') echo 'selected="selected"'; ?>>±¾¿Æ</option>
-                        <option value="Ë¶Ê¿ÑĞ¾¿Éú" <? if ($row['Education'] == 'Ë¶Ê¿ÑĞ¾¿Éú') echo 'selected="selected"'; ?>>Ë¶Ê¿ÑĞ¾¿Éú</option>
-                        <option value="²©Ê¿ÑĞ¾¿Éú" <? if ($row['Education'] == '²©Ê¿ÑĞ¾¿Éú') echo 'selected="selected"'; ?>>²©Ê¿ÑĞ¾¿Éú</option>
-                        <option value="×¨¿Æ" <? if ($row['Education'] == '×¨¿Æ') echo 'selected="selected"'; ?>>×¨¿Æ</option>
+                        <option value="æœ¬ç§‘" <? if ($row['Education'] == 'æœ¬ç§‘') echo 'selected="selected"'; ?>>æœ¬ç§‘</option>
+                        <option value="ç¡•å£«ç ”ç©¶ç”Ÿ" <? if ($row['Education'] == 'ç¡•å£«ç ”ç©¶ç”Ÿ') echo 'selected="selected"'; ?>>ç¡•å£«ç ”ç©¶ç”Ÿ</option>
+                        <option value="åšå£«ç ”ç©¶ç”Ÿ" <? if ($row['Education'] == 'åšå£«ç ”ç©¶ç”Ÿ') echo 'selected="selected"'; ?>>åšå£«ç ”ç©¶ç”Ÿ</option>
+                        <option value="ä¸“ç§‘" <? if ($row['Education'] == 'ä¸“ç§‘') echo 'selected="selected"'; ?>>ä¸“ç§‘</option>
                     </select></td>
             </tr>
             <tr>
-                <td align="right">Éí·İÖ¤ºÅÂë:</td>
+                <td align="right">èº«ä»½è¯å·ç :</td>
                 <td><input type="text" name="PID" id="pid" value="<?= $row['PID'] ?>" required="required" maxlength="18" size="28"></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" name="submit" onclick="return check();" value="Íê³É¸üĞÂ" /><br /><?= @$_GET['warn'] ?></td>
+                <td colspan="2" align="center"><input type="submit" name="submit" onclick="return check();" value="å®Œæˆæ›´æ–°" /><br /><?= @$_GET['warn'] ?></td>
             </tr>
         </table>
     </form>
@@ -95,10 +95,10 @@ if (isset($_POST['submit'])) {
     $sql = "UPDATE Employment SET PersonnelName='" . $_POST['PersonnelName'] . "',Sex='" . $_POST['Sex'] . "',Tel=" . $_POST['Tel'] . ",Addr='" . $_POST['Addr'] . "',Marriage='" . $_POST['Marriage'] . "',Education='" . $_POST['Education'] . "',PID='" . $_POST['PID'] . "' WHERE PersonnelID=" . $_POST['PersonnelID'];
     @$result = odbc_exec($conn, $sql);
     if ($result) {
-        header("location:updateemployment.php?id=" . $_POST['PersonnelID'] . "&warn=¸üĞÂ³É¹¦");
+        header("location:updateemployment.php?id=" . $_POST['PersonnelID'] . "&warn=æ›´æ–°æˆåŠŸ");
         exit;
     } else {
-        header("location:updateemployment.php?id=" . $_POST['PersonnelID'] . "&warn=¸üĞÂÊ§°Ü");
+        header("location:updateemployment.php?id=" . $_POST['PersonnelID'] . "&warn=æ›´æ–°å¤±è´¥");
         exit;
     }
 }
@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
 <br />
 <table align="center">
     <tr>
-        <td><a href="listemployment.php" style="color:white">·µ»ØÉÏÒ»¼¶</a></td>
+        <td><a href="listemployment.php" style="color:white">è¿”å›ä¸Šä¸€çº§</a></td>
     </tr>
 </table>
 
