@@ -3,10 +3,10 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>¸üĞÂ²¿ÃÅĞÅÏ¢</title>
+    <title>æ›´æ–°éƒ¨é—¨ä¿¡æ¯</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
-<h2 align="center" style="color:rgb(158, 216, 216);">¸üĞÂ²¿ÃÅĞÅÏ¢</h2>
+<h2 align="center" style="color:rgb(158, 216, 216);">æ›´æ–°éƒ¨é—¨ä¿¡æ¯</h2>
 
 <?
 require("warn.php");
@@ -27,21 +27,21 @@ if (isset($_GET['id'])) {
     <form action="updatedepartment.php" method="post">
         <table border="3" align="center" cellpadding="2">
             <tr>
-                <td align="right">²¿ÃÅ±àºÅ:</td>
+                <td align="right">éƒ¨é—¨ç¼–å·:</td>
                 <td><?= $row['DepartmentID'] ?><input type="hidden" name="DepartmentID" value="<?= $row['DepartmentID'] ?>"></td>
             </tr>
             <tr>
-                <td align="right">²¿ÃÅÃû³Æ:</td>
+                <td align="right">éƒ¨é—¨åç§°:</td>
                 <td><input type="text" name="DepartmentName" value="<?= $row['DepartmentName'] ?>" required="required" size="28"></td>
             </tr>
             <tr>
-                <td align="right">²¿ÃÅ½éÉÜ:</td>
+                <td align="right">éƒ¨é—¨ä»‹ç»:</td>
                 <td>
                     <p><textarea name="Introduction" warp="virtual" required="required"><?= $row['Introduction'] ?></textarea></p>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" name="submit" value="Íê³É¸üĞÂ" /><br /><?= @$_GET['warn'] ?></td>
+                <td colspan="2" align="center"><input type="submit" name="submit" value="å®Œæˆæ›´æ–°" /><br /><?= @$_GET['warn'] ?></td>
             </tr>
         </table>
     </form>
@@ -50,10 +50,10 @@ if (isset($_POST['submit'])) {
     $sql = "update Department set DepartmentName='" . $_POST['DepartmentName'] . "',Introduction='" . $_POST['Introduction'] . "' where DepartmentID=" . $_POST['DepartmentID'];
     @$result = odbc_exec($conn, $sql);
     if ($result) {
-        header("location:updatedepartment.php?id=" . $_POST['DepartmentID'] . "&warn=¸üĞÂ³É¹¦");
+        header("location:updatedepartment.php?id=" . $_POST['DepartmentID'] . "&warn=æ›´æ–°æˆåŠŸ");
         exit;
     } else {
-        header("location:listdepartment.php?id=" . $_POST['DepartmentID'] . "&warn=¸üĞÂÊ§°Ü");
+        header("location:listdepartment.php?id=" . $_POST['DepartmentID'] . "&warn=æ›´æ–°å¤±è´¥");
         exit;
     }
 }
@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
 <br />
 <table align="center">
     <tr>
-        <td><a href="listdepartment.php" style="color:white">·µ»ØÉÏÒ»¼¶</a></td>
+        <td><a href="listdepartment.php" style="color:white">è¿”å›ä¸Šä¸€çº§</a></td>
     </tr>
 </table>
 
