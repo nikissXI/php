@@ -3,7 +3,7 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>ÍË³ö</title>
+    <title>é€€å‡º</title>
 </head>
 
 <? require("warn.php");

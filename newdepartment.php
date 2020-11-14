@@ -3,10 +3,10 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>Ôö¼Ó²¿ÃÅ</title>
+    <title>å¢žåŠ éƒ¨é—¨</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
-<h2 align="center" style="color:rgb(158, 216, 216);">Ôö¼Ó²¿ÃÅ</h2>
+<h2 align="center" style="color:rgb(158, 216, 216);">å¢žåŠ éƒ¨é—¨</h2>
 
 <?
 require("warn.php");
@@ -20,33 +20,33 @@ if (isset($_POST['submit'])) {
 
     if ($result) { ?>
         <B>
-            <h2 style="color:red" align="center">Ìí¼Ó³É¹¦!</h2>
+            <h2 style="color:red" align="center">æ·»åŠ æˆåŠŸ!</h2>
         </B>
     <?
         header("refresh:1;listdepartment.php");
         exit;
     } else { ?>
         <B>
-            <h2 style="color:red" align="center">Ìí¼ÓÊ§°Ü!</h2>
+            <h2 style="color:red" align="center">æ·»åŠ å¤±è´¥!</h2>
         </B>
     <?
         header("refresh:1;listdepartment.php");
         exit;
     }
 } else { ?>
-    <!-- ²¿ÃÅÃû³Æ,½éÉÜ -->
+    <!-- éƒ¨é—¨åç§°,ä»‹ç» -->
     <form action="newdepartment.php" method="post">
         <table border="3" align="center" cellpadding="2">
             <tr>
-                <td align="right">²¿ÃÅÃû³Æ:</td>
+                <td align="right">éƒ¨é—¨åç§°:</td>
                 <td><input type="text" name="DepartmentName" required="required" size="28"></td>
             </tr>
             <tr>
-                <td align="right">½éÉÜ:</td>
+                <td align="right">ä»‹ç»:</td>
                 <td><textarea name="Introduction" warp="virtual" required="required"></textarea></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" class="sm" name="submit" value="Íê³ÉÌí¼Ó" /></td>
+                <td colspan="2" align="center"><input type="submit" class="sm" name="submit" value="å®Œæˆæ·»åŠ " /></td>
             </tr>
         </table>
     </form>
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 <br />
 <table align="center">
     <tr>
-        <td><a href="menu.php" style="color:white">·µ»ØÖ÷²Ëµ¥</a></td>
+        <td><a href="menu.php" style="color:white">è¿”å›žä¸»èœå•</a></td>
     </tr>
 </table>
 

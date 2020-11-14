@@ -3,10 +3,10 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>¹«Ë¾¸÷²¿ÃÅÐÅÏ¢</title>
+    <title>å…¬å¸å„éƒ¨é—¨ä¿¡æ¯</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
-<h2 align="center" style="color:rgb(158, 216, 216);">¹«Ë¾¸÷²¿ÃÅÐÅÏ¢</h2>
+<h2 align="center" style="color:rgb(158, 216, 216);">å…¬å¸å„éƒ¨é—¨ä¿¡æ¯</h2>
 
 <?
 require("warn.php");
@@ -18,12 +18,12 @@ $sql = "select * from department order by DepartmentID";
 <form action="detail.php" method="GET">
 </form>
 
-<!-- ²¿ÃÅ±àºÅ,²¿ÃÅÃû³Æ,²¿ÃÅ½éÉÜ -->
+<!-- éƒ¨é—¨ç¼–å·,éƒ¨é—¨åç§°,éƒ¨é—¨ä»‹ç» -->
 <table border="3" align="center" cellpadding="2">
     <tr align="center">
-        <td width="100">²¿ÃÅ±àºÅ</td>
-        <td width="100">²¿ÃÅÃû³Æ</td>
-        <td>²¿ÃÅ½éÉÜ</td>
+        <td width="100">éƒ¨é—¨ç¼–å·</td>
+        <td width="100">éƒ¨é—¨åç§°</td>
+        <td>éƒ¨é—¨ä»‹ç»</td>
     </tr>
     <?
     while ($row = odbc_fetch_array($result)) {
@@ -35,38 +35,38 @@ $sql = "select * from department order by DepartmentID";
             <td>
                 <p><?= $row['Introduction'] ?></p>
             </td>
-            <td><a href="updatedepartment.php?id=<?= $row['DepartmentID'] ?>" style="color:white">¸üÐÂ</a></td>
+            <td><a href="updatedepartment.php?id=<?= $row['DepartmentID'] ?>" style="color:white">æ›´æ–°</a></td>
         </tr>
     <? } ?>
 </table>
 <?
-$sql = "select * from listmember order by Ô±¹¤±àºÅ";
+$sql = "select * from listmember order by å‘˜å·¥ç¼–å·";
 for ($i = 0; $i < count($list); $i++) {
     $result = odbc_exec($conn, $sql); ?>
     <br />
-    <h2 align="center" style="color:rgb(158, 216, 216);"><?= $list[$i] . "Ô±¹¤" ?></h2>
+    <h2 align="center" style="color:rgb(158, 216, 216);"><?= $list[$i] . "å‘˜å·¥" ?></h2>
     <table border="3" align="center" cellpadding="2">
         <tr>
-            <td align="center" width="100">ËùÊô²¿ÃÅ</td>
-            <td align="center" width="100">Ô±¹¤ÐÕÃû</td>
-            <td align="center" width="100">Ô±¹¤±àºÅ</td>
-            <td align="center" width="100">¸ÚÎ»</td>
-            <td align="center" width="100">¹¤×Ê</td>
-            <td align="center" width="60">ÐÔ±ð</td>
-            <td align="center" width="100">ÊÖ»úºÅ</td>
-            <td align="center" width="100">ÈëÖ°ÈÕÆÚ</td>
+            <td align="center" width="100">æ‰€å±žéƒ¨é—¨</td>
+            <td align="center" width="100">å‘˜å·¥å§“å</td>
+            <td align="center" width="100">å‘˜å·¥ç¼–å·</td>
+            <td align="center" width="100">å²—ä½</td>
+            <td align="center" width="100">å·¥èµ„</td>
+            <td align="center" width="60">æ€§åˆ«</td>
+            <td align="center" width="100">æ‰‹æœºå·</td>
+            <td align="center" width="100">å…¥èŒæ—¥æœŸ</td>
         </tr>
         <? while ($row = odbc_fetch_array($result)) {
-            if ($row['ËùÊô²¿ÃÅ'] == $list[$i]) { ?>
+            if ($row['æ‰€å±žéƒ¨é—¨'] == $list[$i]) { ?>
                 </tr>
-                <td align="center" width="100"><?= $row['Ô±¹¤ÐÕÃû'] ?></td>
-                <td align="center" width="100"><?= $row['ËùÊô²¿ÃÅ'] ?></td>
-                <td align="center" width="100"><?= $row['Ô±¹¤±àºÅ'] ?></td>
-                <td align="center" width="100"><?= $row['¸ÚÎ»'] ?></td>
-                <td align="center" width="100"><?= $row['¹¤×Ê'] ?></td>
-                <td align="center" width="60"><?= $row['ÐÔ±ð'] ?></td>
-                <td align="center" width="100"><?= $row['ÊÖ»úºÅ'] ?></td>
-                <td align="center" width="100"><?= $row['ÈëÖ°ÈÕÆÚ'] ?></td>
+                <td align="center" width="100"><?= $row['å‘˜å·¥å§“å'] ?></td>
+                <td align="center" width="100"><?= $row['æ‰€å±žéƒ¨é—¨'] ?></td>
+                <td align="center" width="100"><?= $row['å‘˜å·¥ç¼–å·'] ?></td>
+                <td align="center" width="100"><?= $row['å²—ä½'] ?></td>
+                <td align="center" width="100"><?= $row['å·¥èµ„'] ?></td>
+                <td align="center" width="60"><?= $row['æ€§åˆ«'] ?></td>
+                <td align="center" width="100"><?= $row['æ‰‹æœºå·'] ?></td>
+                <td align="center" width="100"><?= $row['å…¥èŒæ—¥æœŸ'] ?></td>
                 </tr>
         <? }
         } ?>
@@ -76,7 +76,7 @@ for ($i = 0; $i < count($list); $i++) {
 <br />
 <table align="center">
     <tr>
-        <td><a href="menu.php" style="color:white">·µ»ØÖ÷²Ëµ¥</a></td>
+        <td><a href="menu.php" style="color:white">è¿”å›žä¸»èœå•</a></td>
     </tr>
 </table>
 

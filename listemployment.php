@@ -3,75 +3,75 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>Ô±¹¤ÐÅÏ¢ÏêÇé</title>
+    <title>å‘˜å·¥ä¿¡æ¯è¯¦æƒ…</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
-<h2 align="center" style="color:rgb(158, 216, 216);">Ô±¹¤ÐÅÏ¢ÏêÇé</h2>
+<h2 align="center" style="color:rgb(158, 216, 216);">å‘˜å·¥ä¿¡æ¯è¯¦æƒ…</h2>
 
 <?
 require("warn.php");
 require("sql.php");
-$sql = "select * from detail order by Ô±¹¤±àºÅ";
+$sql = "select * from detail order by å‘˜å·¥ç¼–å·";
 $sql2 = " where ";
 
 if (isset($_GET['kw'])) {
-    $sql = $sql . " where " . $_GET['kw'] . " order by Ô±¹¤±àºÅ";
+    $sql = $sql . " where " . $_GET['kw'] . " order by å‘˜å·¥ç¼–å·";
 }
 @$result = odbc_exec($conn, $sql);
 if (!$result) {
-    if (odbc_errormsg($conn) != "[Microsoft][ODBC SQL Server Driver][SQL Server]¡°where¡±¸½½üÓÐÓï·¨´íÎó¡£") {
+    if (odbc_errormsg($conn) != "[Microsoft][ODBC SQL Server Driver][SQL Server]â€œwhereâ€é™„è¿‘æœ‰è¯­æ³•é”™è¯¯ã€‚") {
 ?>
         <B>
             <p style="text-align:center;color:red"><?= odbc_errormsg($conn) ?></p>
         </B>
 <? }
-    $sql = "select * from detail order by Ô±¹¤±àºÅ";
+    $sql = "select * from detail order by å‘˜å·¥ç¼–å·";
     $result = odbc_exec($conn, $sql);
 }
 ?>
 
 <form action="listemployment.php" method="get">
-    <p align="center" class="where">Ìõ¼þ¹ýÂË(SQLÓï¾ä): WHERE
+    <p align="center" class="where">æ¡ä»¶è¿‡æ»¤(SQLè¯­å¥): WHERE
         <input name="kw" type="text" size="100" />
-        <input type="submit" name="submit" class="sm" value="Ìá½»" /></p>
+        <input type="submit" name="submit" class="sm" value="æäº¤" /></p>
 </form>
 
-<!-- ×´Ì¬,Ô±¹¤ÐÕÃû,Éí·ÝÖ¤ºÅÂë,Ô±¹¤±àºÅ,¸ÚÎ»,ËùÊô²¿ÃÅ,²¿ÃÅ±àºÅ,¹¤×Ê,ÐÔ±ð,ÊÖ»ú,×¡Ö·,»éÒöÇé¿ö,Ñ§Àú -->
+<!-- çŠ¶æ€,å‘˜å·¥å§“å,èº«ä»½è¯å·ç ,å‘˜å·¥ç¼–å·,å²—ä½,æ‰€å±žéƒ¨é—¨,éƒ¨é—¨ç¼–å·,å·¥èµ„,æ€§åˆ«,æ‰‹æœº,ä½å€,å©šå§»æƒ…å†µ,å­¦åŽ† -->
 <table border="3" align="center" cellpadding="2">
     <tr align="center">
-        <td>×´Ì¬</td>
-        <td width="80">Ô±¹¤ÐÕÃû</td>
-        <td>Éí·ÝÖ¤ºÅÂë</td>
-        <td>Ô±¹¤±àºÅ</td>
-        <td>ÈëÖ°ÈÕÆÚ</td>
-        <td width="100">¸ÚÎ»</td>
-        <td width="100">ËùÊô²¿ÃÅ</td>
-        <td>²¿ÃÅ±àºÅ</td>
-        <td width="80">¹¤×Ê</td>
-        <td>ÐÔ±ð</td>
-        <td>ÊÖ»ú</td>
-        <td width="200">×¡Ö·</td>
-        <td>»éÒöÇé¿ö</td>
-        <td width="100">Ñ§Àú</td>
+        <td>çŠ¶æ€</td>
+        <td width="80">å‘˜å·¥å§“å</td>
+        <td>èº«ä»½è¯å·ç </td>
+        <td>å‘˜å·¥ç¼–å·</td>
+        <td>å…¥èŒæ—¥æœŸ</td>
+        <td width="100">å²—ä½</td>
+        <td width="100">æ‰€å±žéƒ¨é—¨</td>
+        <td>éƒ¨é—¨ç¼–å·</td>
+        <td width="80">å·¥èµ„</td>
+        <td>æ€§åˆ«</td>
+        <td>æ‰‹æœº</td>
+        <td width="200">ä½å€</td>
+        <td>å©šå§»æƒ…å†µ</td>
+        <td width="100">å­¦åŽ†</td>
     </tr>
     <?
     while ($row = odbc_fetch_array($result)) { ?>
         <tr align="center">
-            <td><?= $row['×´Ì¬'] ?></td>
-            <td><?= $row['Ô±¹¤ÐÕÃû'] ?></td>
-            <td><?= $row['Éí·ÝÖ¤ºÅÂë'] ?></td>
-            <td><?= $row['Ô±¹¤±àºÅ'] ?></td>
-            <td><?= $row['ÈëÖ°ÈÕÆÚ'] ?></td>
-            <td><?= $row['¸ÚÎ»'] ?></td>
-            <td><?= $row['ËùÊô²¿ÃÅ'] ?></td>
-            <td><?= $row['²¿ÃÅ±àºÅ'] ?></td>
-            <td><?= $row['¹¤×Ê'] ?></td>
-            <td><?= $row['ÐÔ±ð'] ?></td>
-            <td><?= $row['ÊÖ»ú'] ?></td>
-            <td><?= $row['×¡Ö·'] ?></td>
-            <td><?= $row['»éÒöÇé¿ö'] ?></td>
-            <td><?= $row['Ñ§Àú'] ?></td>
-            <td><a href="updateemployment.php?id=<?= $row['Ô±¹¤±àºÅ'] ?>" style="color:white">¸üÐÂ</a></td>
+            <td><?= $row['çŠ¶æ€'] ?></td>
+            <td><?= $row['å‘˜å·¥å§“å'] ?></td>
+            <td><?= $row['èº«ä»½è¯å·ç '] ?></td>
+            <td><?= $row['å‘˜å·¥ç¼–å·'] ?></td>
+            <td><?= $row['å…¥èŒæ—¥æœŸ'] ?></td>
+            <td><?= $row['å²—ä½'] ?></td>
+            <td><?= $row['æ‰€å±žéƒ¨é—¨'] ?></td>
+            <td><?= $row['éƒ¨é—¨ç¼–å·'] ?></td>
+            <td><?= $row['å·¥èµ„'] ?></td>
+            <td><?= $row['æ€§åˆ«'] ?></td>
+            <td><?= $row['æ‰‹æœº'] ?></td>
+            <td><?= $row['ä½å€'] ?></td>
+            <td><?= $row['å©šå§»æƒ…å†µ'] ?></td>
+            <td><?= $row['å­¦åŽ†'] ?></td>
+            <td><a href="updateemployment.php?id=<?= $row['å‘˜å·¥ç¼–å·'] ?>" style="color:white">æ›´æ–°</a></td>
         </tr>
     <? } ?>
 </table>
@@ -80,7 +80,7 @@ if (!$result) {
 <br />
 <table align="center">
     <tr>
-        <td><a href="menu.php" style="color:white">·µ»ØÖ÷²Ëµ¥</a></td>
+        <td><a href="menu.php" style="color:white">è¿”å›žä¸»èœå•</a></td>
     </tr>
 </table>
 

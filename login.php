@@ -3,7 +3,7 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>ÏµÍ³µÇÂ¼</title>
+    <title>ç³»ç»Ÿç™»å½•</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
 
@@ -19,12 +19,12 @@ if (@$_SESSION['login'] == '1') {
     if ($result)
         $row = odbc_fetch_array($result);
     if (isset($_POST['submit']) && (empty($_POST['un']) || empty($_POST['pw']))) {
-        $warn = "ÓÃ»§Ãû»òÃÜÂëÎª¿Õ";
+        $warn = "ç”¨æˆ·åæˆ–å¯†ç ä¸ºç©º";
     } else if ($result && $_POST['un'] == $row['un'] && $_POST['pw'] == $row['pw']) {
         $_SESSION['login'] = '1';
         header("location:menu.php");
     } else {
-        $warn = "ÓÃ»§Ãû»òÃÜÂë´íÎó";
+        $warn = "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯";
     }
 }
 ?>
@@ -39,7 +39,7 @@ if (@$_SESSION['login'] == '1') {
             </tr>
             <tr>
                 <td colspan="2">
-                    <h1 style="text-align:center;color:rgb(158, 216, 216);">&emsp;&emsp;&emsp;ÈËÊÂ¹ÜÀíÏµÍ³ºóÌ¨&emsp;&emsp;&emsp;</h1>
+                    <h1 style="text-align:center;color:rgb(158, 216, 216);">&emsp;&emsp;&emsp;äººäº‹ç®¡ç†ç³»ç»Ÿåå°&emsp;&emsp;&emsp;</h1>
                 </td>
             </tr>
             <tr>
@@ -48,10 +48,10 @@ if (@$_SESSION['login'] == '1') {
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="center">ÓÃ»§Ãû: <input name=" un" class="input" type="text" size="20" required="required" class="username" /></td>
+                <td colspan="2" align="center">ç”¨æˆ·å: <input name=" un" class="input" type="text" size="20" required="required" class="username" /></td>
             </tr>
             <tr>
-                <td colspan="2" align="center">ÃÜ&emsp;Âë: <input name="pw" class="input" type="password" size="20" required="required" class="pass" /></td>
+                <td colspan="2" align="center">å¯†&emsp;ç : <input name="pw" class="input" type="password" size="20" required="required" class="pass" /></td>
             </tr>
             <tr>
                 <td>
@@ -59,7 +59,7 @@ if (@$_SESSION['login'] == '1') {
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" name="submit" value="µÇÂ½" class="sm" /></td>
+                <td colspan="2" align="center"><input type="submit" name="submit" value="ç™»é™†" class="sm" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">

@@ -3,15 +3,15 @@
 header("Content-Type: text/html; charset=gb2312"); ?>
 
 <head>
-    <title>Ôö¼Ó×ª¸ÚÐÅÏ¢</title>
+    <title>å¢žåŠ è½¬å²—ä¿¡æ¯</title>
     <link href="menu.css" type="text/css" rel="stylesheet" />
 </head>
-<h2 align="center" style="color:rgb(158, 216, 216);">Ôö¼Ó×ª¸ÚÐÅÏ¢</h2>
+<h2 align="center" style="color:rgb(158, 216, 216);">å¢žåŠ è½¬å²—ä¿¡æ¯</h2>
 <script>
     function check() {
         var pid = document.getElementById('pid');
         if (pid.value.length < 6) {
-            alert("Ô±¹¤±àºÅ³¤¶ÈÎª6Î»£¡");
+            alert("å‘˜å·¥ç¼–å·é•¿åº¦ä¸º6ä½ï¼");
             pid.focus();
             return false;
         }
@@ -28,14 +28,14 @@ if (isset($_POST['submit'])) {
 
     if ($result) { ?>
         <B>
-            <h2 style="color:red" align="center">Ìí¼Ó³É¹¦!</h2>
+            <h2 style="color:red" align="center">æ·»åŠ æˆåŠŸ!</h2>
         </B>
     <?
         header("refresh:1;listtrans.php");
         exit;
     } else { ?>
         <B>
-            <h2 style="color:red" align="center">Ìí¼ÓÊ§°Ü!</h2>
+            <h2 style="color:red" align="center">æ·»åŠ å¤±è´¥!</h2>
         </B>
     <?
         header("refresh:1;listtrans.php");
@@ -44,19 +44,19 @@ if (isset($_POST['submit'])) {
 } else {
     $sql = "select DepartmentID,DepartmentName from Department";
     $result = odbc_exec($conn, $sql); ?>
-    <!-- ²¿ÃÅÃû³Æ,½éÉÜ -->
+    <!-- éƒ¨é—¨åç§°,ä»‹ç» -->
     <form action="newtrans.php" method="post">
         <table border="3" align="center" cellpadding="2">
             <tr>
-                <td align="right">Ô±¹¤±àºÅ:</td>
+                <td align="right">å‘˜å·¥ç¼–å·:</td>
                 <td><input type="text" name="PersonnelID" id="pid" required="required" maxlength="6" size="28" oninput="value=value.replace(/[^\d]/g,'')"></td>
             </tr>
             <tr>
-                <td align="right">×ª¸ÚÔ­Òò:</td>
+                <td align="right">è½¬å²—åŽŸå› :</td>
                 <td><textarea name="TransReason" required="required"></textarea></td>
             </tr>
             <tr>
-                <td align="right">ÐÂ²¿ÃÅ:</td>
+                <td align="right">æ–°éƒ¨é—¨:</td>
                 <td>
                     <select name="NewDepartmentID">
                         <?
@@ -66,11 +66,11 @@ if (isset($_POST['submit'])) {
                     </select></td>
             </tr>
             <tr>
-                <td align="right">ÐÂ¸ÚÎ»:</td>
+                <td align="right">æ–°å²—ä½:</td>
                 <td><input type="text" name="NewPosition" required="required" size="28"></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" class="sm" onclick="return check();" name="submit" value="Íê³ÉÌí¼Ó" /></td>
+                <td colspan="2" align="center"><input type="submit" class="sm" onclick="return check();" name="submit" value="å®Œæˆæ·»åŠ " /></td>
             </tr>
         </table>
     </form>
@@ -78,23 +78,23 @@ if (isset($_POST['submit'])) {
 
 <table align="center">
     <tr>
-        <td><a href="menu.php" style="color:white">·µ»ØÖ÷²Ëµ¥</a></td>
+        <td><a href="menu.php" style="color:white">è¿”å›žä¸»èœå•</a></td>
     </tr>
 </table>
 <br />
 <div>
     <form action="newtrans.php" method="get">
-        <p align="center" class="search">Ô±¹¤±àºÅËÑË÷
-            <input name="kw" type="text" size="20" placeholder="ÊäÈëÔ±¹¤ÐÕÃû" />
-            <input type="submit" name="submit" class="sm" value="Ìá½»" /></p>
+        <p align="center" class="search">å‘˜å·¥ç¼–å·æœç´¢
+            <input name="kw" type="text" size="20" placeholder="è¾“å…¥å‘˜å·¥å§“å" />
+            <input type="submit" name="submit" class="sm" value="æäº¤" /></p>
     </form>
 </div>
 
 <?
-$sql = "select ×´Ì¬,Ô±¹¤ÐÕÃû,Ô±¹¤±àºÅ from detail order by Ô±¹¤±àºÅ";
+$sql = "select çŠ¶æ€,å‘˜å·¥å§“å,å‘˜å·¥ç¼–å· from detail order by å‘˜å·¥ç¼–å·";
 
 if (isset($_GET['kw'])) {
-    $sql = "select ×´Ì¬,Ô±¹¤ÐÕÃû,Ô±¹¤±àºÅ from detail where Ô±¹¤ÐÕÃû like '%" . $_GET['kw'] . "%' order by Ô±¹¤±àºÅ";
+    $sql = "select çŠ¶æ€,å‘˜å·¥å§“å,å‘˜å·¥ç¼–å· from detail where å‘˜å·¥å§“å like '%" . $_GET['kw'] . "%' order by å‘˜å·¥ç¼–å·";
 }
 @$result = odbc_exec($conn, $sql);
 ?>
@@ -102,14 +102,14 @@ if (isset($_GET['kw'])) {
 <div class="list">
     <table border="3" align="center" cellpadding="2">
         <tr align="center">
-            <td width="80">Ô±¹¤ÐÕÃû</td>
-            <td>Ô±¹¤±àºÅ</td>
+            <td width="80">å‘˜å·¥å§“å</td>
+            <td>å‘˜å·¥ç¼–å·</td>
         </tr>
         <?
         while ($row = odbc_fetch_array($result)) { ?>
             <tr align="center">
-                <td><?= $row['Ô±¹¤ÐÕÃû'] ?></td>
-                <td><?= $row['Ô±¹¤±àºÅ'] ?></td>
+                <td><?= $row['å‘˜å·¥å§“å'] ?></td>
+                <td><?= $row['å‘˜å·¥ç¼–å·'] ?></td>
             </tr>
         <? } ?>
     </table>
