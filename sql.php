@@ -1,8 +1,8 @@
 <html>
 
 <?
-$dsn = "Driver={SQL Server};Server=192.168.137.129;Database=sqlks"; //sql·þÎñÆ÷IP,Êý¾Ý¿â
-$conn = odbc_connect($dsn, 'nikiss', 'nikisss'); //sqlÕËºÅ,ÃÜÂë
+$dsn = "Driver={SQL Server};Server=192.168.137.129;Database=sqlks"; //sqlæœåŠ¡å™¨IP,æ•°æ®åº“
+$conn = odbc_connect($dsn, 'nikiss', 'nikisss'); //sqlè´¦å·,å¯†ç 
 ?>
 
 </html>
